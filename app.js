@@ -46,7 +46,7 @@ function AlreadyBoughtController(ShoppingListCheckOffService) {
 }
 
 
-// If not specified, maxItems assumed unlimited
+
 function ShoppingListCheckOffService() {
   var service = this;
   var maxItems = 100;
@@ -111,19 +111,4 @@ service.marcarComoComprado = function (itemIndexListaPorComprar){
   };
 }
 
-/*
-function ShoppingListProvider() {
-  var provider = this;
-
-  provider.defaults = {
-    maxItems: 100
-  };
-
-  provider.$get = function () {
-    var shoppingList = new ShoppingListService(provider.defaults.maxItems);
-
-    return shoppingList;
-  };
-}
-*/
 })();
