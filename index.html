@@ -1,0 +1,44 @@
+<!doctype html>
+<html ng-app='ShoppingListCheckOff'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Shopping List Check Off</title>
+  </head>
+<body>
+  <h1>Shopping List Check Off - by CHRISTIAN BARRERA</h1>
+  <div>
+    <table border="1">
+      <tr>
+          <td>
+            <!-- To Buy List -->
+              <div ng-controller='ToBuyController as unaLista'>
+                 <h2>To Buy:</h2>
+                 <ul>
+                        <li ng-repeat="item in unaLista.items">
+                          Buy {{ item.quantity }} {{ item.name }}
+                            <button ng-click="unaLista.marcarComoComprado($index);">Bought</button>
+                        </li>
+                 </ul>
+                 <div ng-show='!unaLista.hayElementos()' class="error">Everything is bought!</div>
+              </div>
+          </td>
+          <td>
+              <!-- Already Bought List -->
+              <div ng-controller='AlreadyBoughtController as lista'>
+                 <h2>Already Bought:</h2>
+                 <ul>
+                    <li ng-repeat="item in lista.items">
+                      Bought {{ item.quantity }} {{ item.name }}
+                    </li>
+                 </ul>
+                 <div ng-show='!lista.hayElementos()' class="error">Nothing bought yet.</div>
+              </div>
+          </td>
+        </tr>
+      </table>
+  </div>
+</body>
+</html>
